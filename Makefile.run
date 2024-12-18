@@ -38,3 +38,18 @@ step5:
 	cat tmp/* > zz.output.step5.txt
 	./compliance.sh zz.output.step5.txt
 
+step6:
+	rm -f zz.output.step6.txt
+	time find . -name "router.unix" -print | xargs -P 1 -n 1 ./test6 > zz.output.step6.txt || true
+
+step7:
+	rm -f zz.output.step7.txt
+	time find . -name "router.unix" -print | xargs -P 1 -n 1 ./test7 > zz.output.step7.txt || true
+
+step8:
+	rm -f zz.output.step8.txt
+	rm -r tmp
+	mkdir tmp
+	time find conf -name "router.unix.*" -print | xargs -P 50 -n 50 ./test8 > zz.output.step8.txt || true
+	cat tmp/* > zz.output.step8.txt
+

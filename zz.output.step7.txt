@@ -1,0 +1,2 @@
+line vty 0 3 missing access-class in
+line vty 0 3 missing access-class out
